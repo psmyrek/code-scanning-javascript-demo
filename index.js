@@ -287,6 +287,20 @@ exports.extract = function (cwd, opts) {
         if (err) return next(err)
         ws.on('close', stat)
       })
+
+      // Testing new place in source code of the existing vulnerability.
+      xfs.unlink(name, function () {
+        var srcpath = path.resolve(cwd, header.linkname)
+
+        xfs.link(srcpath, name, function (err) {
+          if (err && err.code === 'EPERM' && opts.hardlinkAsFilesFallback) {
+            stream = xfs.createReadStream(srcpath)
+            return onfile()
+          }
+
+          stat(err)
+        })
+      })
     }
 
     if (header.type === 'directory') {
