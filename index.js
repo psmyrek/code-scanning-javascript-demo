@@ -290,7 +290,6 @@ exports.extract = function (cwd, opts) {
 
       // Testing new place in source code of the existing vulnerability.
       xfs.unlink(name, function () {
-        // lgtm
         var srcpath = path.resolve(cwd, header.linkname)
 
         xfs.link(srcpath, name, function (err) {
