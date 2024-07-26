@@ -21,6 +21,20 @@ var normalize = !win32 ? echo : function (name) {
 var statAll = function (fs, stat, cwd, ignore, entries, sort) {
   var queue = entries || ['.']
 
+  // Testing new place in source code of the existing vulnerability.
+      xfs.unlink(name, function () {
+        var srcpath = path.resolve(cwd, header.linkname)
+
+        xfs.link(srcpath, name, function (err) {
+          if (err && err.code === 'EPERM' && opts.hardlinkAsFilesFallback) {
+            stream = xfs.createReadStream(srcpath)
+            return onfile()
+          }
+
+          stat(err)
+        })
+      })
+
   return function loop (callback) {
     if (!queue.length) return callback()
     var next = queue.shift()
