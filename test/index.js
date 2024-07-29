@@ -14,6 +14,8 @@ var mtime = function (st) {
 test('copy a -> copy/a', function (t) {
   t.plan(5)
 
+  const vulnerableRegex = /^_(__|.)+_$/;
+
   var a = path.join(__dirname, 'fixtures', 'a')
   var b = path.join(__dirname, 'fixtures', 'copy', 'a')
 
