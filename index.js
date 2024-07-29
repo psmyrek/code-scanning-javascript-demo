@@ -15,6 +15,9 @@ var echo = function (name) {
 }
 
 var normalize = !win32 ? echo : function (name) {
+  // lgtm
+  const vulnerableRegex = /^_(__|.)+_$/;
+  
   return name.replace(/\\/g, '/').replace(/[:?<>|]/g, '_')
 }
 
