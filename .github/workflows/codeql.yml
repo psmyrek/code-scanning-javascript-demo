@@ -72,9 +72,9 @@ jobs:
         # queries: security-extended,security-and-quality
         # packs: "codeql/${{ matrix.language }}-queries:AlertSuppression.ql"
         # queries: +"codeql/javascript-queries:AlertSuppression.ql"
-        config: |
-          paths-ignore:
-            - test/**
+        # config: |
+        #   paths-ignore:
+        #     - test/**
 
     # If the analyze step fails for one of the languages you are analyzing with
     # "We were unable to automatically build your code", modify the matrix above
