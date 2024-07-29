@@ -74,8 +74,8 @@ jobs:
         # queries: +"codeql/javascript-queries:AlertSuppression.ql"
         config: |
           paths-ignore:
-            - test/**/*.*
-            - foo/**
+            - './test/**'
+            - './foo/**'
 
     # If the analyze step fails for one of the languages you are analyzing with
     # "We were unable to automatically build your code", modify the matrix above
