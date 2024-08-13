@@ -73,7 +73,7 @@ jobs:
         # packs: "codeql/util:AlertSuppression.ql"
         # queries: +"codeql/javascript-queries:AlertSuppression.ql"
         config: |
-          paths:
+          paths-ignore:
             - test/**
 
     # If the analyze step fails for one of the languages you are analyzing with
